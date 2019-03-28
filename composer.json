@@ -3,7 +3,7 @@
   "description": "Fix some issue of https://hub.docker.com/r/alexcheng/magento2",
   "require": {},
   "type": "magento2-module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "proprietary",
   "authors": [
     {
