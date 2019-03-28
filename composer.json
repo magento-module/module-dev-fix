@@ -1,0 +1,30 @@
+{
+  "name": "khoazero123/module-dev-fix",
+  "description": "Fix some issue of https://hub.docker.com/r/alexcheng/magento2",
+  "require": {
+    "mageplaza/module-core": "^1.4.0"
+  },
+  "type": "magento2-module",
+  "version": "1.2.9",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "KhoaZero123",
+      "email": "khoazero123@gmail.com",
+      "homepage": "https://github.com/khoazero123",
+      "role": "Technical Support"
+    }
+  ],
+  "minimum-stability": "dev",
+  "keywords": [
+    "magento 2"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Khoazero123\\DevFix\\": ""
+    }
+  }
+}
