@@ -19,6 +19,7 @@ class Store extends \Magento\Store\Model\Store {
 
         $parseCurrentUrl = parse_url($currentUrl);
 
+        $parseOriginUrl['scheme'] = $parseCurrentUrl['scheme'];
         $parseOriginUrl['host'] = $parseCurrentUrl['host'];
         $parseOriginUrl['port'] = $parseCurrentUrl['port'];
 

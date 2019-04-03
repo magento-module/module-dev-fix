@@ -48,6 +48,7 @@ class FrontNameResolver extends \Magento\Backend\App\Area\FrontNameResolver {
 
         $parseCurrentUrl = parse_url($currentUrl);
 
+        $parseOriginUrl['scheme'] = $parseCurrentUrl['scheme'];
         $parseOriginUrl['host'] = $parseCurrentUrl['host'];
         $parseOriginUrl['port'] = $parseCurrentUrl['port'];
 
