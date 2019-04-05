@@ -26,10 +26,12 @@ class UpdateConfigCommand extends Command
      * @param ObjectManagerFactory $objectManagerFactory
      */
     public function __construct(
-        ObjectManagerFactory $objectManagerFactory
+        ObjectManagerFactory $objectManagerFactory,
+        \Magento\Framework\App\Cache\Manager $cacheManager
     ) {
-        $this->objectManagerFactory = $objectManagerFactory;
         parent::__construct();
+        $this->objectManagerFactory = $objectManagerFactory;
+        $this->cacheManager = $cacheManager;
     }
 
     protected function configure()
@@ -57,6 +59,8 @@ class UpdateConfigCommand extends Command
             $configWriter->save($key, $value);
             $output->writeln("<info>Updated {$key} -> {$value}</info>");
         }
+
+        $this->cacheManager->flush($this->cacheManager->getAvailableTypes());
 
     }
 
