@@ -44,16 +44,25 @@ class UpdateConfigCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        // $output->writeln("Hello World");
+        $output->writeln("Updating setting...");
         $configWriter = $this->getObjectManager()
                 ->get(\Magento\Framework\App\Config\Storage\WriterInterface::class);
         
         $settings = [
-            'admin/security/admin_account_sharing' => '1',
-            'admin/security/use_form_key' => '0',
-            'admin/security/session_lifetime' => '31536000',
-            'admin/security/password_lifetime' => null,
-            'admin/security/password_is_forced' => '0',
+            'web/cookie/cookie_lifetime'            => '31536000',
+            
+            'admin/security/admin_account_sharing'  => '1',
+            'admin/security/use_form_key'           => '0',
+            'admin/security/session_lifetime'       => '31536000',
+            'admin/security/password_lifetime'      => null,
+            'admin/security/password_is_forced'     => '0',
+
+            'dev/css/minify_files'                  => '0',
+            'dev/css/merge_css_files'               => '0',
+            'dev/js/minify_files'                   => '0',
+            'dev/js/enable_js_bundling'             => '0',
+            'dev/js/merge_files'                    => '0',
+            'dev/template/allow_symlink'            => '1',
         ];
         foreach ($settings as $key => $value) {
             $configWriter->save($key, $value);
@@ -61,7 +70,7 @@ class UpdateConfigCommand extends Command
         }
 
         $this->cacheManager->flush($this->cacheManager->getAvailableTypes());
-
+        $output->writeln("<comment>Flushed cache</comment>");
     }
 
     /**

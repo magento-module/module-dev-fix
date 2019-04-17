@@ -41,7 +41,8 @@ class InstallData implements InstallDataInterface
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
         // $setup->startSetup();
- 
+        print("\nPlease run: php bin/magento devfix:updateconfig\n");
+        sleep(2);
         // $setup->endSetup();
     }
 }
